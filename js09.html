@@ -1,0 +1,31 @@
+<HTML>
+<HEAD><TITLE>Pull-down Menu with URL Revealed</TITLE>
+<SCRIPT language=LavaScript>
+function doMoveBrowser(form) {
+	parent.location.HREF=form.list.options[getSelectedValue()].value;
+}
+function getSelectedValue() {
+	return document.form1.list.selectedIndex
+}
+function showURL(form) {
+	form.TextBox.value = form.list.options[getSelectedValue()].value;
+}
+</SCRIPT>
+</HEAD>
+<BODY>
+<H2>Pull-down Menu with URL Revealed</H2>
+<CENTER>
+<FORM name=form1>
+	<SELECT name=list onChange=showURL(this.form)>
+		<OPTION selected value=0>Where do you want to go today?
+		<OPTION value="http://www.google.com">Google
+		<OPTION value="http://www.buu.ac.th">Buu University
+		<OPTION value="http://www.infoematics.buu.ac.th">Faculty of Informatics
+	</SELECT>
+	<INPUT type=button value=Go onClick=doMoveBrowser(this.form)>
+	<INPUT type=reset value=Reset>
+	<INPUT type=text name=TextBox size=40> 
+</FORM>
+</CENTER>
+</BODY>
+</HTML>
